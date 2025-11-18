@@ -6,7 +6,7 @@ It uses AES-256 and XOR+Salt encryption with a modular OOP architecture and a ha
 
 ---
 
-🚀 Features
+<b>Features<b>
 
 🔐 AES-256 encryption
 
