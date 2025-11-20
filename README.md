@@ -137,10 +137,12 @@ Requires symbols
 
 Policies can be modified via policies.cfg:
 
+```
 MIN_LENGTH=12
 REQUIRE_UPPERCASE=true
 REQUIRE_DIGIT=true
 REQUIRE_SYMBOL=true
+```
 
 
 ---
