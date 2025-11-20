@@ -1,12 +1,12 @@
 # ZeroCrypt – Advanced Local Encryption Tool
 
-ZeroCrypt is a local, offline encryption and password vault tool designed for secure file protection and credential storage. It provides AES-256 encryption, XOR+Salt lightweight encryption, password policy enforcement, audit logging, and an interactive command-line interface.
+ZeroCrypt is a free, open source and local offline encryption and password vault tool designed for secure file protection and credential storage. It provides AES-256 encryption, XOR+Salt lightweight encryption, password policy enforcement, audit logging, and an interactive command-line interface.
 All data is stored locally, with no cloud interaction or telemetry.
 
 
 ---
 
-##**Features**
+**Features**
 
 - AES-256 (CBC) encryption
 
@@ -37,7 +37,7 @@ All data is stored locally, with no cloud interaction or telemetry.
 Clone the repository:
 
 ```
-git clone https://github.com/your-username/ZeroCrypt.git
+git clone https://github.com/haarishprajwal/ZeroCrypt.git
 cd ZeroCrypt
 ```
 
