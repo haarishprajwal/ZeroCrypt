@@ -6,7 +6,7 @@ All data is stored locally, with no cloud interaction or telemetry.
 
 ---
 
-**Features**
+## **Features**
 
 - AES-256 (CBC) encryption
 
