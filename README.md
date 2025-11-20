@@ -6,38 +6,38 @@ All data is stored locally, with no cloud interaction or telemetry.
 
 ---
 
-Features
+##**Features**
 
-AES-256 (CBC) encryption
+- AES-256 (CBC) encryption
 
-XOR + Salt lightweight encryption mode
+- XOR + Salt lightweight encryption mode
 
-Encrypted vault storage (vault.dat)
+- Encrypted vault storage (vault.dat)
 
-AES key generator
+- AES key generator
 
-Password policy validation (configurable via policies.cfg)
+- Password policy validation (configurable via policies.cfg)
 
-Audit logging (audit_log.txt)
+- Audit logging (audit_log.txt)
 
-Interactive terminal menu
+- Interactive terminal menu
 
-Strategy pattern for encryption modes
+- Strategy pattern for encryption modes
 
-In-memory vault using Map<String, PasswordEntry>
+- In-memory vault using Map<String, PasswordEntry>
 
-Completely offline operation
+- Completely offline operation
 
 
 
 ---
 
-Installation (Kali Linux or any Linux system)
+##**Installation (Kali Linux or any Linux system)**
 
 Clone the repository:
 
-git clone
-``` https://github.com/your-username/ZeroCrypt.git
+```
+git clone https://github.com/your-username/ZeroCrypt.git
 cd ZeroCrypt
 ```
 
@@ -61,7 +61,7 @@ java ZeroCrypt
 
 ---
 
-CLI Menu Overview
+##**CLI Menu Overview**
 
 ZeroCrypt provides an interactive interface:
 
@@ -81,7 +81,7 @@ ZeroCrypt provides an interactive interface:
 
 ---
 
-Command-Line Usage (Optional)
+##**Command-Line Usage (Optional)**
 
 Generate an AES-256 key:
 
@@ -103,7 +103,7 @@ java ZeroCrypt decrypt-file output.enc secret.key decrypted.txt
 
 ---
 
-Vault System
+##**Vault System**
 
 ZeroCrypt stores structured credential entries inside an encrypted vault file (vault.dat).
 Each entry includes:
@@ -122,7 +122,7 @@ Vault data is serialized, encrypted, and written to disk using either AES or XOR
 
 ---
 
-Password Policies
+##**Password Policies**
 
 Password strength validation is configurable. By default:
 
@@ -147,46 +147,46 @@ REQUIRE_SYMBOL=true
 
 ---
 
-Encryption Modes
+##**Encryption Modes**
 
-AES-256 (Recommended)
+###**AES-256 (Recommended)**
 
-Uses CBC mode with PKCS5 padding
+- Uses CBC mode with PKCS5 padding
 
-Random IV generated for each encryption
+- Random IV generated for each encryption
 
-Both vault data and individual files can be encrypted
+- Both vault data and individual files can be encrypted
 
 
-XOR + Salt
+###**XOR + Salt**
 
-Lightweight and fast
+- Lightweight and fast
 
-Uses modular XOR operations with a salt array
+- Uses modular XOR operations with a salt array
 
-Educational, but not intended for high-security use
+- Educational, but not intended for high-security use
 
 
 
 ---
 
-Architecture
+##**Architecture**
 
-ZeroCrypt uses a modular structure with a strategy-based design:
+- ZeroCrypt uses a modular structure with a strategy-based design:
 
-Core Components
+- Core Components
 
-CipherProvider (strategy interface)
+- CipherProvider (strategy interface)
 
-AESCipherProvider (AES-256 implementation)
+- AESCipherProvider (AES-256 implementation)
 
-XorCipherProvider (XOR+Salt implementation)
+- XorCipherProvider (XOR+Salt implementation)
 
-PasswordEntry (serializable vault object)
+- PasswordEntry (serializable vault object)
 
-Policies (password rules parser and validator)
+- Policies (password rules parser and validator)
 
-AuthFailedException and WeakPasswordException
+- AuthFailedException and WeakPasswordException
 
 
 File Structure
@@ -202,21 +202,21 @@ ZeroCrypt/
 
 ---
 
-Security Notes
+##**Security Notes**
 
-Keep AES key files stored securely.
+- Keep AES key files stored securely.
 
-Do not store the vault and key file together on shared systems.
+- Do not store the vault and key file together on shared systems.
 
-XOR mode is not intended for high-security use.
+- XOR mode is not intended for high-security use.
 
-The vault file should be backed up securely after each update.
+- The vault file should be backed up securely after each update.
 
 
 
 ---
 
-Disclaimer
+##**Disclaimer**
 
 ZeroCrypt is intended for legal, ethical, and educational use only.
 The developer is not responsible for misuse, data loss, or security incidents resulting from improper usage.
@@ -224,7 +224,7 @@ The developer is not responsible for misuse, data loss, or security incidents re
 
 ---
 
-License
+##**License**
 
 ZeroCrypt is released under the MIT License.
 You are free to modify, distribute, and use this software for personal or commercial purposes.
