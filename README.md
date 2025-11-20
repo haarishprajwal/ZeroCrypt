@@ -32,7 +32,7 @@ All data is stored locally, with no cloud interaction or telemetry.
 
 ---
 
-##**Installation (Kali Linux or any Linux system)**
+## **Installation (Kali Linux or any Linux system)**
 
 Clone the repository:
 
@@ -61,7 +61,7 @@ java ZeroCrypt
 
 ---
 
-##**CLI Menu Overview**
+## **CLI Menu Overview**
 
 ZeroCrypt provides an interactive interface:
 
@@ -81,7 +81,7 @@ ZeroCrypt provides an interactive interface:
 
 ---
 
-##**Command-Line Usage (Optional)**
+## **Command-Line Usage (Optional)**
 
 Generate an AES-256 key:
 
@@ -103,7 +103,7 @@ java ZeroCrypt decrypt-file output.enc secret.key decrypted.txt
 
 ---
 
-##**Vault System**
+## **Vault System**
 
 ZeroCrypt stores structured credential entries inside an encrypted vault file (vault.dat).
 Each entry includes:
@@ -122,7 +122,7 @@ Vault data is serialized, encrypted, and written to disk using either AES or XOR
 
 ---
 
-##**Password Policies**
+## **Password Policies**
 
 Password strength validation is configurable. By default:
 
@@ -147,9 +147,9 @@ REQUIRE_SYMBOL=true
 
 ---
 
-##**Encryption Modes**
+## **Encryption Modes**
 
-###**AES-256 (Recommended)**
+### **AES-256 (Recommended)**
 
 - Uses CBC mode with PKCS5 padding
 
@@ -158,7 +158,7 @@ REQUIRE_SYMBOL=true
 - Both vault data and individual files can be encrypted
 
 
-###**XOR + Salt**
+### **XOR + Salt**
 
 - Lightweight and fast
 
@@ -170,7 +170,7 @@ REQUIRE_SYMBOL=true
 
 ---
 
-##**Architecture**
+## **Architecture**
 
 - ZeroCrypt uses a modular structure with a strategy-based design:
 
@@ -202,7 +202,7 @@ ZeroCrypt/
 
 ---
 
-##**Security Notes**
+## **Security Notes**
 
 - Keep AES key files stored securely.
 
@@ -216,7 +216,7 @@ ZeroCrypt/
 
 ---
 
-##**Disclaimer**
+## **Disclaimer**
 
 ZeroCrypt is intended for legal, ethical, and educational use only.
 The developer is not responsible for misuse, data loss, or security incidents resulting from improper usage.
@@ -224,7 +224,7 @@ The developer is not responsible for misuse, data loss, or security incidents re
 
 ---
 
-##**License**
+## **License**
 
 ZeroCrypt is released under the MIT License.
 You are free to modify, distribute, and use this software for personal or commercial purposes.
