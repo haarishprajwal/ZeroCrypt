@@ -56,7 +56,7 @@ javac ZeroCrypt.java
 Run ZeroCrypt:
 
 ```
-java ZeroCrypt
+java ZeroCrypt.class
 ```
 
 ---
