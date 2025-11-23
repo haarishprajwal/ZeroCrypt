@@ -1,194 +1,235 @@
 # ZeroCrypt – Advanced Local Encryption Tool
 
-ZeroCrypt is an aggressive, fast, and secure local file encryption CLI tool built for developers, cybersecurity learners, and privacy-focused users.
-It uses AES-256 and XOR+Salt encryption with a modular OOP architecture and a hacker-grade command-line interface.
+---
+ZeroCrypt is a local, offline encryption and password vault tool designed for secure file protection and credential storage. It provides AES-256 encryption, XOR+Salt lightweight encryption, password policy enforcement, audit logging, and an interactive command-line interface.
+All data is stored locally, with no cloud interaction or telemetry.
 
 
 ---
 
-<b>Features<b>
+Features
 
-🔐 AES-256 encryption
+- AES-256 (CBC) encryption
 
-⚡ Optional XOR + Salt lightweight mode
+- XOR + Salt lightweight encryption mode
 
-🗂 Encrypted vault file (vault.dat)
+- Encrypted vault storage (vault.dat)
 
-🔑 Secure key generation
+- AES key generator
 
-🔍 Password strength validation (regex-based)
+- Password policy validation (configurable via policies.cfg)
 
-🧾 Audit logging (audit_log.txt)
+- Audit logging (audit_log.txt)
 
-🧩 Strategy + Factory design patterns
+- Interactive terminal menu
 
-🗃 Map-based in-memory vault
+- Strategy pattern for encryption modes
 
-🔒 Fully offline, no telemetry
+- In-memory vault using Map<String, PasswordEntry>
+
+- Completely offline operation
 
 
 
 ---
 
-📦 Installation
+## **Installation (Kali Linux or any Linux system)**
 
-Clone the repository
+Clone the repository:
 
-git clone https://github.com/yourname/ZeroCrypt.git
+```
+git clone https://github.com/haarishprajwal/ZeroCrypt.git
 cd ZeroCrypt
+```
 
-Compile
+Install Java (if not installed):
 
+```
+sudo apt install default-jdk
+```
+
+Compile the program:
+
+```
 javac ZeroCrypt.java
+```
 
-Run
+Run ZeroCrypt:
 
-java ZeroCrypt
-
+```
+java ZeroCrypt.java
+```
 
 ---
 
-🖥 CLI Menu
+## **CLI Menu Overview**
 
-On startup, ZeroCrypt shows a menu like:
+ZeroCrypt provides an interactive interface:
 
+```
 1) Encrypt File
 2) Decrypt File
 3) Generate Key
-4) View Audit Log
-5) Exit
-
+4) Switch Cipher Mode (AES/XOR)
+5) Load Vault
+6) Save Vault
+7) Add Password Entry
+8) Retrieve Password Entry
+9) Delete Password Entry
+10) Export Vault (CSV)
+11) View Audit Log
+12) Exit
+```
 
 ---
 
-🔧 Commands
+## **Command-Line Usage (Optional)**
 
-Encrypt a file
+Generate an AES-256 key:
 
-java ZeroCrypt encrypt input.txt secret.key output.enc
-
-Decrypt a file
-
-java ZeroCrypt decrypt file.enc secret.key decrypted.txt
-
-Generate a key
-
+```
 java ZeroCrypt genkey secret.key
+```
+
+Encrypt a file using an AES key:
+
+```
+java ZeroCrypt encrypt-file input.txt secret.key output.enc
+```
+
+Decrypt a file:
+
+```
+java ZeroCrypt decrypt-file output.enc secret.key decrypted.txt
+```
+
+---
+
+## **Vault System**
+
+ZeroCrypt stores structured credential entries inside an encrypted vault file (vault.dat).
+Each entry includes:
+
+Service identifier (example: github.com)
+
+Username
+
+Password
+
+Timestamp
+
+
+Vault data is serialized, encrypted, and written to disk using either AES or XOR+Salt depending on the selected cipher mode.
 
 
 ---
 
-🧩 Architecture Overview
+## **Password Policies**
 
-Core Classes
+Password strength validation is configurable. By default:
 
-Vault (abstract) – add, retrieve, delete, export
+Minimum length: 8
 
-Cipher (interface) – encrypt/decrypt
+Requires uppercase letters
 
-XorCipher – fast XOR + salt encryption
+Requires digits
 
-AESCipher – AES-256 implementation
-
-PasswordEntry – serialized objects stored in the vault
+Requires symbols
 
 
-Collections
+Policies can be modified via policies.cfg:
 
-Map<String, PasswordEntry> – the in-memory storage
-
-
-Custom Exceptions
-
-AuthFailedException
-
-WeakPasswordException
-
-
+```
+MIN_LENGTH=12
+REQUIRE_UPPERCASE=true
+REQUIRE_DIGIT=true
+REQUIRE_SYMBOL=true
+```
 
 ---
 
-🔐 Encryption Concepts
+## **Encryption Modes**
 
-AES-256 (recommended)
+AES-256 (Recommended)
 
-Strong symmetric encryption for highly sensitive files.
+Uses CBC mode with PKCS5 padding
 
-XOR + Salt (educational mode)
+Random IV generated for each encryption
 
-Uses modular arithmetic:
-
-cipher[i] = data[i] XOR salt[i % saltLength]
+Both vault data and individual files can be encrypted
 
 
----
+XOR + Salt
 
-🔣 Password Strength Rules
+Lightweight and fast
 
-Validated using regex:
+Uses modular XOR operations with a salt array
 
-Contains uppercase
-
-Contains digits
-
-Contains symbols
-
-Minimum length (configurable via policies.cfg)
-
-
-
----
-
-📚 Math Inside
-
-Modular arithmetic for XOR cipher
-
-Entropy calculation for password strength
-
-Entropy ≈ log₂(charsetⁿ)
-
-
-
----
-
-🏗 Design Patterns Used
-
-Strategy Pattern → choose between AES or XOR
-
-Factory Pattern → storage/encryption provider abstraction
+Educational, but not intended for high-security use
 
 
 
 ---
 
-📁 File Summary
+## **Architecture**
 
-File	Description
+ZeroCrypt uses a modular structure with a strategy-based design:
 
-ZeroCrypt.java	Main CLI program
-vault.dat	Encrypted vault
-policies.cfg	Password policy rules
-audit_log.txt	Operation logs
+Core Components
+
+- CipherProvider (strategy interface)
+
+- AESCipherProvider (AES-256 implementation)
+
+- XorCipherProvider (XOR+Salt implementation)
+
+- PasswordEntry (serializable vault object)
+
+- Policies (password rules parser and validator)
+
+- AuthFailedException and WeakPasswordException
+
+
+File Structure
+
+```
+ZeroCrypt/
+  ZeroCrypt.java
+  README.md
+  policies.cfg               (optional)
+  vault.dat                  (generated)
+  secret.key                 (user-generated)
+  audit_log.txt              (generated)
+```
+
+---
+
+## **Security Notes**
+
+Keep AES key files stored securely.
+
+Do not store the vault and key file together on shared systems.
+
+XOR mode is not intended for high-security use.
+
+The vault file should be backed up securely after each update.
 
 
 
 ---
 
-⚠ Disclaimer
+## **Disclaimer**
 
-ZeroCrypt is intended only for legal, ethical, and educational use.
-Misuse may violate security or privacy laws.
-
-
----
-
-🤝 Contributing
-
-Pull requests, improvements, and feature suggestions are welcome!
+ZeroCrypt is intended for **legal, ethical, and educational use only.**
+The developer is not responsible for misuse, data loss, or security incidents resulting from improper usage.
 
 
 ---
 
-⭐ License
+## **License**
 
-MIT License — free for personal and commercial use.
+ZeroCrypt is released under the MIT License.
+You are free to modify, distribute, and use this software for personal or commercial purposes.
+
+
+---
