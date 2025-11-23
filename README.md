@@ -133,13 +133,13 @@ Vault data is serialized, encrypted, and written to disk using either AES or XOR
 
 Password strength validation is configurable. By default:
 
-Minimum length: 8
+- Minimum length: 8
 
-Requires uppercase letters
+- Requires uppercase letters
 
-Requires digits
+- Requires digits
 
-Requires symbols
+- Requires symbols
 
 
 Policies can be modified via policies.cfg:
@@ -155,23 +155,19 @@ REQUIRE_SYMBOL=true
 
 ## **Encryption Modes**
 
-AES-256 (Recommended)
+- AES-256 (Recommended)
 
-Uses CBC mode with PKCS5 padding
+- Uses CBC mode with PKCS5 padding
 
-Random IV generated for each encryption
+- Random IV generated for each encryption
 
-Both vault data and individual files can be encrypted
+- Both vault data and individual files can be encrypted
 
+- XOR + Salt
 
-XOR + Salt
+- Lightweight and fast
 
-Lightweight and fast
-
-Uses modular XOR operations with a salt array
-
-Educational, but not intended for high-security use
-
+- Uses modular XOR operations with a salt array
 
 
 ---
