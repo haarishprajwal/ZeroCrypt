@@ -24,7 +24,6 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.regex.Pattern;
-import java.util.Base64;
 
 /* Main Class */
 public class ZeroCrypt {
@@ -447,18 +446,21 @@ public class ZeroCrypt {
     }
 
     private void printBanner() {
-        System.out.println("███████╗███████╗██████╗  ██████╗ ██████╗██████╗ ");
-        System.out.println("██╔════╝██╔════╝██╔══██╗██╔════╝██╔════╝██╔══██╗");
-        System.out.println("███████╗█████╗  ██████╔╝██║     ██║     ██████╔╝");
-        System.out.println("╚════██║██╔══╝  ██╔══██╗██║     ██║     ██╔══██╗");
-        System.out.println("███████║███████╗██║  ██║╚██████╗╚██████╗██║  ██║");
-        System.out.println("╚══════╝╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚═════╝╚═╝  ╚═╝");
-        System.out.println("                ZEROCRYPT");
-        System.out.println("         Zero Leaks. Zero Traces.");
-        System.out.println();
-        System.out.println("Current cipher: " + cipherProvider.getName());
-        System.out.println("Entries in memory: " + vaultMap.size());
-        System.out.println();
+        String banner = """
+ ███████████                               █████████                                  █████   
+░█░░░░░░███                               ███░░░░░███                                ░░███    
+░     ███░    ██████  ████████   ██████  ███     ░░░  ████████  █████ ████ ████████  ███████  
+     ███     ███░░███░░███░░███ ███░░███░███         ░░███░░███░░███ ░███ ░░███░░███░░░███░   
+    ███     ░███████  ░███ ░░░ ░███ ░███░███          ░███ ░░░  ░███ ░███  ░███ ░███  ░███    
+  ████     █░███░░░   ░███     ░███ ░███░░███     ███ ░███      ░███ ░███  ░███ ░███  ░███ ███
+ ███████████░░██████  █████    ░░██████  ░░█████████  █████     ░░███████  ░███████   ░░█████ 
+░░░░░░░░░░░  ░░░░░░  ░░░░░      ░░░░░░    ░░░░░░░░░  ░░░░░       ░░░░░███  ░███░░░     ░░░░░  
+                                                                 ███ ░███  ░███               
+                                                                ░░██████   █████              
+                                                                 ░░░░░░   ░░░░░                                      
+                """;
+
+        System.out.println(banner);
     }
 
     private void log(String msg) {
