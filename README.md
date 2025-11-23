@@ -1,6 +1,5 @@
-<p align="center">
-  <img src="images/Screenshot 2025-11-23 184438.png" width="400">
-</p>
+<img src="images/Screenshot 2025-11-23 184438.png">
+
 
 
 # ZeroCrypt – Advanced Local Encryption Tool
