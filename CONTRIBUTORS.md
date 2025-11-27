@@ -1,4 +1,4 @@
-# Contributors ✨
+# Contributors
 
 This project exists thanks to the efforts of the following contributors:
 
@@ -13,5 +13,8 @@ This project exists thanks to the efforts of the following contributors:
 ## 👤 Eswar
 - Role: Support / Testing  
 - Contributions: Testing, debugging, suggestions, workflow improvements, documentation.
+
+--- 
+### I Thank my seniors for guiding me and contributing in this project.
 
 ---
