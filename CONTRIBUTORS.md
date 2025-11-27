@@ -8,7 +8,7 @@ This project exists thanks to the efforts of the following contributors:
 
 ## 👤  Hemanth Reddy
 - Role: Developer  
-- Contributions: Feature enhancements, bug fixes, code improvements.
+- Contributions: Core development, Feature enhancements, bug fixes.
 
 ## 👤 Eswar
 - Role: Support / Testing  
