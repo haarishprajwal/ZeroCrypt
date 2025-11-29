@@ -105,7 +105,7 @@ docker run --rm -it -v "$PWD":/data haarishprajwal/zerocrypt
 /data/output.enc
 ```
 
-**Build from Source**
+## **Build from Source**
 If you want to build the image locally:
 ```
 docker build -t zerocrypt .
