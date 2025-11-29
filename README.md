@@ -30,7 +30,7 @@ Features
 
 - Strategy pattern for encryption modes
 
-- In-memory vault using Map<String, PasswordEntry>
+- In-memory vault using Map <String, PasswordEntry>
 
 - Completely offline operation
 
@@ -63,6 +63,53 @@ Run ZeroCrypt:
 
 ```
 java ZeroCrypt.java
+```
+
+---
+
+## 🐳 Run ZeroCrypt with Docker (No Java Required)
+
+ZeroCrypt can run on **Windows, macOS, and Linux** without installing Java.
+Just use Docker.
+
+### Run ZeroCrypt from Docker Hub
+
+```
+docker run --rm -it haarishprajwal/zerocrypt
+```
+
+### Run ZeroCrypt with File Access
+
+If you want ZeroCrypt to read/write your files (vault, keys, encrypted files),
+run it from inside the folder where your files are.
+
+**PowerShell (Windows)**
+```
+docker run --rm -it -v ${PWD}:/data haarishprajwal/zerocrypt
+```
+
+**CMD (Windows)**
+```
+docker run --rm -it -v %cd%:/data haarishprajwal/zerocrypt
+```
+
+**macOS / Linux**
+```
+docker run --rm -it -v "$PWD":/data haarishprajwal/zerocrypt
+```
+
+**Inside ZeroCrypt, use Linux-style paths:**
+```
+/data/inputfile.docx
+/data/mykey.key
+/data/output.enc
+```
+
+**Build from Source**
+If you want to build the image locally:
+```
+docker build -t zerocrypt .
+docker run --rm -it zerocrypt
 ```
 
 ---
